@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Beba, Be My Valentine ❤️</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #ffccd5, #ffe6f0);
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #ff0066;
+            margin-top: 100px;
+        }
+
+        p {
+            font-size: 20px;
+            color: #cc0066;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 20px;
+            cursor: pointer;
+            border-radius: 12px;
+            border: none;
+        }
+
+        #yesBtn {
+            background-color: #ff3399;
+            color: white;
+        }
+
+        #noBtn {
+            background-color: #999;
+            color: white;
+            position: absolute;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff4d88;
+            font-size: 24px;
+            animation: float 6s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh); opacity: 1; }
+            100% { transform: translateY(-10vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<h1>Beba ❤️</h1>
+<p>You make my world brighter every single day...</p>
+<h2>Will you be my Valentine? 💖</h2>
+
+<button id="yesBtn" onclick="sayYes()">Yes 💕</button>
+<button id="noBtn" onmouseover="moveButton()">No 🙈</button>
+
+<script>
+    function moveButton() {
+        var btn = document.getElementById("noBtn");
+        var x = Math.random() * (window.innerWidth - 120);
+        var y = Math.random() * (window.innerHeight - 120);
+        btn.style.left = x + "px";
+        btn.style.top = y + "px";
+    }
+
+    function sayYes() {
+        alert("Yaaay Beba! You just made Addy the happiest person alive ❤️");
+        window.location.href = "mailto:addy.dogra07@gmail.com?subject=Beba Said YES ❤️&body=I clicked YES 💕";
+    }
+
+    // Floating hearts
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
+
+    setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
